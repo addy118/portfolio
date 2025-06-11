@@ -4,9 +4,8 @@ import { Button } from "@/components/ui/button";
 
 export default function IntroSection() {
   const downloadResume = () => {
-    // Replace with actual Google Drive document ID
-    const docId = "REPLACE_WITH_YOUR_DOC_ID";
-    const downloadUrl = `https://drive.google.com/uc?export=download&id=${docId}`;
+    const downloadUrl =
+      "https://drive.google.com/file/d/19ocApaf-54xd_3d-3fXmUIP1X_C6RioH/view?usp=sharing";
     window.open(downloadUrl, "_blank");
   };
 
