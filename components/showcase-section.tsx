@@ -1,6 +1,8 @@
 "use client";
 
 import { Card, CardContent } from "@/components/ui/card";
+import { ExternalLink, Github, GithubIcon, Link, LinkIcon } from "lucide-react";
+import { Button } from "./ui/button";
 
 const projects = [
   {
@@ -9,7 +11,8 @@ const projects = [
       "A smart, responsive full-stack PWA to manage and split group expenses with ease.",
       "Implemented secure Google OAuth login, direct UPI payments, PDF exports, email reminders, and a custom optimization algorithm that reduces settlement steps by up to 60%.",
     ],
-    link: "https://fairshare.adityakirti.tech",
+    github: "https://github.com/addy118/fairshare",
+    live: "https://fairshare.adityakirti.tech",
     image: "/fairshare_1898x863.png",
     stack:
       "TypeScript, PostgreSQL, React, Redux, RTK Query, Express, Node.js, Tailwind",
@@ -20,7 +23,8 @@ const projects = [
       "A full-stack on-the-go cloud storage for uploading, retrieving, and sharing files with up to 10-file batch uploads and 99% uptime.",
       "Features secure JWT auth with auto token rotation, intuitive breadcrumb navigation, and Supabase-powered storage with shareable links and 5MB/file upload limit.",
     ],
-    link: "https://cloudvault.adityakirti.tech",
+    github: "https://github.com/addy118/cloudvault",
+    live: "https://cloudvault.adityakirti.tech",
     image: "/cloudvault_1919x904.png",
     stack: "PostgreSQL, React, Multer, Express, Node.js, Supabase, Tailwind",
   },
@@ -80,7 +84,7 @@ export const ShowcaseSection = () => {
                     </p>
                   </div>
                   <div
-                    className={`flex items-center justify-center p-4 sm:p-6 lg:p-8 ${
+                    className={`flex flex-col gap-4 items-center justify-center p-4 sm:p-6 lg:p-8 ${
                       index % 2 === 1 ? "lg:col-start-1" : ""
                     }`}
                   >
@@ -89,6 +93,28 @@ export const ShowcaseSection = () => {
                       alt={project.name}
                       className="w-full max-w-[500px] h-auto object-cover rounded"
                     />
+
+                    <div className="flex items-center justify-between gap-4">
+                      <Button
+                        onClick={() => {
+                          window.open(project.github, "_blank");
+                        }}
+                        className="bg-[#0A0A0A]/80 hover:bg-[#040404]/70 border-[#00A6ED]/20 text-[#00A6ED]/90 px-4 sm:px-6 py-2 sm:py-3 text-base sm:text-lg font-mono rounded-lg transition-all duration-100 border"
+                      >
+                        <Github color="#00A6ED" />
+                        <span className="text-[#F1F0EA]">GitHub</span>
+                      </Button>
+
+                      <Button
+                        onClick={() => {
+                          window.open(project.live, "_blank");
+                        }}
+                        className="bg-[#0A0A0A]/80 hover:bg-[#040404]/70 border-[#00A6ED]/20 text-[#00A6ED]/90 px-4 sm:px-6 py-2 sm:py-3 text-base sm:text-lg font-mono rounded-lg transition-all duration-100 border"
+                      >
+                        <ExternalLink color="#00A6ED" />
+                        <span className="text-[#F1F0EA]">Live</span>
+                      </Button>
+                    </div>
                   </div>
                 </div>
               </CardContent>
