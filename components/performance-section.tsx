@@ -113,7 +113,7 @@ export const PerformanceSection = async () => {
   const codingNinjas = {
     name: "Coding Ninjas",
     logo: "/cn.jpeg",
-    link: "https://leetcode.com/u/addy_118",
+    link: "https://www.naukri.com/code360/profile/devaddy",
     username: "addy_118",
     stats: {
       easy: 26,
