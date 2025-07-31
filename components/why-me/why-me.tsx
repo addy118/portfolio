@@ -27,7 +27,7 @@ export default function WhyAdityaSection() {
         </h2>
         <h6 className="text-xs sm:text-lg lg:text-xl text-balance mb-6 sm:mb-8 text-[#F1F0EA] px-2">
           Because, I am skilled in working with the following technologies and
-          tools and can help build software that is needed by you.
+          tools by which I can help you build software that is needed by people.
         </h6>
 
         <div className="space-y-3 sm:space-y-4">

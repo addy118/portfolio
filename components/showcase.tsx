@@ -1,23 +1,11 @@
 "use client";
 
 import { Card, CardContent } from "@/components/ui/card";
-import {
-  ArrowRightToLine,
-  ArrowUpRight,
-  ExternalLink,
-  FileQuestionIcon,
-  Github,
-  GithubIcon,
-  Link,
-  LinkIcon,
-  LucideMessageCircleQuestion,
-  MessageCircleQuestion,
-  MessageCircleQuestionIcon,
-  ShieldQuestion,
-} from "lucide-react";
+import { ExternalLink, FileQuestionIcon, Github } from "lucide-react";
 import { Button } from "./ui/button";
 import { useRouter } from "next/navigation";
 import projects from "@/lib/showcase";
+import { Badge } from "./ui/badge";
 
 export const ShowcaseSection = () => {
   const router = useRouter();
@@ -62,7 +50,7 @@ export const ShowcaseSection = () => {
                         {project.description.map((list, i) => (
                           <li
                             key={i}
-                            className="text-start font-extralight text-sm sm:text-base py-1 sm:py-2"
+                            className="flex items-start text-start font-extralight text-sm sm:text-base py-1 sm:py-2 before:content-['>'] before:mr-2 before:text-gray-400"
                           >
                             {list}
                           </li>
@@ -70,9 +58,19 @@ export const ShowcaseSection = () => {
                       </div>
                     </div>
 
-                    <p className="font-extralight text-[#00A6ED]/80 px-2 sm:px-6 text-xs sm:text-sm">
-                      {project?.stack}
-                    </p>
+                    <div className="flex flex-wrap items-center justify-center gap-2">
+                      {project?.stack.map((tech) => (
+                        <Badge
+                          key={tech}
+                          variant="default"
+                          className="text-lg font-medium text-[#F1f0ea]/70 bg-[#00A6ED]/10 gap-2 flex items-center justify-between rounded-full max-w-max"
+                        >
+                          <p className="font-extralight text-[#00A6ED]/80 text-xs sm:text-sm hover:text-[#000] cursor-pointer">
+                            {tech}
+                          </p>
+                        </Badge>
+                      ))}
+                    </div>
                   </div>
                   <div
                     className={`flex flex-col gap-4 items-center justify-center p-4 sm:p-6 lg:p-8 ${

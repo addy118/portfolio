@@ -116,10 +116,10 @@ export const PerformanceSection = async () => {
     link: "https://www.naukri.com/code360/profile/devaddy",
     username: "addy_118",
     stats: {
-      easy: 26,
-      medium: 20,
-      hard: 1,
-      total: 47,
+      easy: 27,
+      medium: 24,
+      hard: 5,
+      total: 56,
     },
   };
 

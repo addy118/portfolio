@@ -10,7 +10,7 @@ const showcase = [
     docs: "https://adityakirti.tech/projects/fairshare",
     image: "/fairshare_1898x863.png",
     stack:
-      "TypeScript, PostgreSQL, React, Redux, RTK Query, Express, Node.js, Tailwind",
+      ["TypeScript", "PostgreSQL", "React", "Redux", "RTK Query", "Express", "Node.js", "Tailwind"],
   },
   {
     name: "Cloudvault",
@@ -22,7 +22,7 @@ const showcase = [
     live: "https://cloudvault.adityakirti.tech",
     docs: "https://adityakirti.tech/projects/livelet",
     image: "/cloudvault_1919x904.png",
-    stack: "PostgreSQL, React, Multer, Express, Node.js, Supabase, Tailwind",
+    stack: ["PostgreSQL", "React", "Multer", "Express", "Node.js", "Supabase", "Tailwind"],
   },
 ];
 
