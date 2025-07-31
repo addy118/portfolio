@@ -1,4 +1,4 @@
-import Platform from "./Platform";
+import Platform from "./platform";
 
 // https://alfa-leetcode-api.onrender.com/addy_118/solved
 // https://geeks-for-geeks-api.vercel.app/addy118
@@ -34,7 +34,7 @@ export const PerformanceSection = async () => {
     const gfgRes = await fetch(
       "https://geeks-for-geeks-api.vercel.app/addy118",
       {
-        cache: "no-store",
+        next: { revalidate: 3600 },
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
@@ -75,7 +75,7 @@ export const PerformanceSection = async () => {
     const lcRes = await fetch(
       "https://alfa-leetcode-api.onrender.com/addy_118/solved",
       {
-        cache: "no-store",
+        next: { revalidate: 3600 },
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",

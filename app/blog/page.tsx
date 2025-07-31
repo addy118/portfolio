@@ -3,24 +3,14 @@
 import Navbar from "@/components/navbar";
 import { Card, CardContent } from "@/components/ui/card";
 import { ExternalLink, Calendar, Clock } from "lucide-react";
-import { blog } from "../../components/blogData";
+import { blog } from "../../lib/blogs";
+import Background from "@/components/background";
 
 export default function BlogPage() {
   return (
     <div className="min-h-screen text-[#F1F0EA] font-mono relative">
       {/* Background */}
-      <div className="modern-bg">
-        <div className="base-gradient"></div>
-        <div className="radial-mesh"></div>
-        <div className="elemental-texture"></div>
-        <div className="dot-matrix"></div>
-        <div className="accent-elements">
-          <div className="accent-element"></div>
-          <div className="accent-element"></div>
-          <div className="accent-element"></div>
-        </div>
-        <div className="noise-overlay"></div>
-      </div>
+      <Background />
 
       {/* Content layer */}
       <div className="content-layer">

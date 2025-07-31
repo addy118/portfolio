@@ -1,5 +1,5 @@
-import { RenderSkill } from "./RenderSkill";
-import { skills } from "./skills";
+import { RenderSkill } from "./render-skill";
+import { skills } from "../../lib/skills";
 
 export interface Skill {
   name: string;

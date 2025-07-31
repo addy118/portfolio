@@ -1,9 +1,9 @@
 import Navbar from "@/components/navbar";
-import IntroSection from "@/components/intro-section";
-import WhyAdityaSection from "@/components/why-aditya-section";
-import { ShowcaseSection } from "@/components/showcase-section";
-import { PerformanceSection } from "@/components/performance-section";
-import InstallationSection from "@/components/installation-section";
+import IntroSection from "@/components/intro";
+import WhyAdityaSection from "@/components/why-me/why-me";
+import { ShowcaseSection } from "@/components/showcase";
+import { PerformanceSection } from "@/components/performance/performance";
+import InstallationSection from "@/components/installation";
 
 export default function Home() {
   return (

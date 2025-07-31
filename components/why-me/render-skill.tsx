@@ -1,5 +1,5 @@
 import type { FC } from "react";
-import type { Skill } from "./why-aditya-section";
+import type { Skill } from "./why-me";
 
 export const RenderSkill: FC<{ skills: Skill[] }> = ({ skills }) => {
   return (

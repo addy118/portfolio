@@ -1,4 +1,4 @@
-import { Skill } from "./why-aditya-section";
+import { Skill } from "../components/why-me/why-me";
 
 export const skills: Skill[] = [
   {

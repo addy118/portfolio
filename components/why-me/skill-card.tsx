@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { SkillCardProps } from "./why-aditya-section";
+import { SkillCardProps } from "./why-me";
 
 export const SkillCard: FC<SkillCardProps> = ({ skill, key }) => {
   return (
