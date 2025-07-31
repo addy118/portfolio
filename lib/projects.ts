@@ -40,9 +40,10 @@ export const projects = [
         "Fairshare simplifies group expenses and debt tracking using smart algorithm and group-based event flows",
       features: [
         "Split multi-payer expenses equally among friends or groups",
-        "Cash flow optimization algorithm to calculate least amount of total transactions needed",
+        "Cash flow algorithm which reduces the total transactions upto 60%",
         "Two-way confirmation mechanism for debt settlement",
-        "PDF export of expense summaries",
+        "Transparency of expense history and settlement history for all members in the group",
+        "PDF export of expense history for sharing",
         "In-app UPI payment support for debt settlement",
       ],
     },
