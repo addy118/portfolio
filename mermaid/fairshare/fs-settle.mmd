@@ -10,21 +10,21 @@ sequenceDiagram
   participant Server as Server
   participant DB as DB
 
-  Debtor Client ->>+ Server: PUT /api/splits/{id}/settle
-  Server ->>+ DB: update split status to 'settled'
-  DB -->>- Server: confirms update
-  Server -->>- Debtor Client: returns { success: "Settlement pending confirmation" }
-  Note over Creditor Client, Server: creditor is notified and reviews the pending settlement
+  Debtor Client ->> Server: PUT /api/splits/{id}/settle
+  Server ->> DB: update split status to 'settled'
+  DB -->> Server: confirms update
+  Server -->> Debtor Client: returns { success: "Settlement pending confirmation" }
+  Note over Creditor Client, Server: creditor is updated and reviews the pending settlement
   alt Creditor Confirms Settlement
-    Creditor Client ->>+ Server: PUT /api/splits/{id}/confirm
-    Server ->>+ DB: update split status to 'confirmed'
-    DB -->>- Server: confirms update
-    Server -->>- Creditor Client: returns { success: "Settlement confirmed" }
+    Creditor Client ->> Server: PUT /api/splits/{id}/confirm
+    Server ->> DB: update split status to 'confirmed'
+    DB -->> Server: confirms update
+    Server -->> Creditor Client: returns { success: "Settlement confirmed" }
   else Creditor Denies Settlement
-    Creditor Client ->>+ Server: PUT /api/splits/{id}/not-confirm
-    Server ->>+ DB: revert split status to 'unsettled'
-    DB -->>- Server: confirms update
-    Server -->>- Creditor Client: returns { success: "Settlement unsettled" }
+    Creditor Client ->> Server: PUT /api/splits/{id}/not-confirm
+    Server ->> DB: revert split status to 'unsettled'
+    DB -->> Server: confirms update
+    Server -->> Creditor Client: returns { success: "Settlement unsettled" }
   end
 
 

@@ -9,14 +9,15 @@ sequenceDiagram
     participant DB 
     
     %% --- 1. User Authentication --- %%
-    User->>Server: authenticates via auth provider
-    note over Server: server validates credentials
+    User->>Server: authenticates via clerk
+    Server->>DB: stores credentials of authenticated user
+    DB-->>Server: returns true
     Server-->>User: returns success
 
 
     %% --- 2. Core Application Action (e.g., creating an expense) --- %%
-    User->>Server: performs an action (e.g., POST /api/expenses)
-    Server->>Server: apply business logic (e.g., calculate splits)
+    User->>Server: performs an action 
+    Server->>Server: apply business logic 
     Server->>DB: create/read/update data
     DB-->>Server: returns query result
     Server-->>User: returns result of the action

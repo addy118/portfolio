@@ -1,0 +1,27 @@
+---
+config:
+  theme: redux-color
+  look: neo
+---
+sequenceDiagram
+    participant Client 
+    participant Server 
+    participant DB 
+
+    %% --- User Registration --- %%
+
+    Client->>Server: POST /api/register 
+    Server->>Server: hash user password
+    Server->>DB: create new user record
+    DB-->>Server: confirms user creation
+    Server-->>Client: returns success message
+
+
+    %% --- User Login --- %%
+
+    Client->>Server: POST /api/login 
+    Server->>DB: verify user credentials
+    DB-->>Server: credentials are valid
+    Server->>Server: create jwt with user payload & expiration
+    Server-->>Client: returns jwt
+    Client->>Client: attaches this JWT to each requests

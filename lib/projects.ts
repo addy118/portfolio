@@ -64,28 +64,32 @@ export const projects = [
       { category: "Database", technologies: ["PostgreSQL", "Prisma"] },
       { category: "Other", technologies: ["Clerk", "Vercel"] },
     ],
-    dbSchemaSvg: "/diagrams/fairshare-db.svg",
-    highLevelArchSvg: "/diagrams/fairshare-hla.svg",
+    dbSchemaSvg: "/schemas/fairshare-erd.svg",
+    highLevelArchSvg: "/seq-diagrams/fairshare/fs-high-arch.svg",
     coreFeatures: [
       {
         title: "Power of the Cash flow algorithm for splits calculation",
-        svg: "/diagrams/fairshare-core-debt-opt.svg",
+        svg: "/seq-diagrams/fairshare/fs-algo.svg",
+      },
+      {
+        title: "How are splits of an expense calculated?",
+        svg: "/seq-diagrams/fairshare/fs-expense-calc.svg",
       },
       {
         title: "Expense creation in a group",
-        svg: "/diagrams/fairshare-core-debt-opt.svg",
+        svg: "/seq-diagrams/fairshare/fs-expense.svg",
       },
       {
         title: "Two-way confirmation of debt settlement",
-        svg: "/diagrams/fairshare-core-expense.svg",
+        svg: "/seq-diagrams/fairshare/fs-settlement.svg",
       },
       {
         title: "Integration of Clerk's user management in Fairshare",
-        svg: "/diagrams/fairshare-core-group.svg",
+        svg: "/seq-diagrams/fairshare/fs-clerk-flow.svg",
       },
       {
         title: "Standard JWT authentication used by Clerk",
-        svg: "",
+        svg: "/seq-diagrams/fairshare/fs-std-auth.svg",
       },
     ],
     challenges: [

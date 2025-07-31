@@ -1,0 +1,16 @@
+---
+config:
+  theme: redux-color
+  look: neo
+---
+sequenceDiagram
+    participant Clerk Auth
+    participant Server 
+    participant DB 
+
+    note over Clerk Auth, Server: triggered by user events in clerk 
+    Clerk Auth->>Server: POST /api/webhooks/clerk 
+    Server->>Server: validate webhook signature for security
+    Server->>DB: create or update user record with clerk data
+    DB-->>Server: confirms record update
+    Server-->>Clerk Auth: returns 200 OK
