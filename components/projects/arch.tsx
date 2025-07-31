@@ -63,15 +63,15 @@ export default function Arch({ project }: { project: Project }) {
                 <AccordionTrigger className="text-[#F1F0EA] hover:text-[#00A6ED] hover:no-underline font-mono">
                   <div className="text-left">
                     <h4 className="text-lg font-semibold text-[#00A6ED] font-mono">
-                      System Workflow Overview
+                      High-level System Workflow Overview
                     </h4>
                     <p className="text-sm text-[#F1F0EA]/80 mt-1 font-mono">
-                      View the complete system workflow and interactions
+                      View the complete system high-level workflow and interactions
                     </p>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent>
-                  <div className="bg-[#0A0A0A]/50 rounded-lg p-6 border border-[#00A6ED]/20">
+                  <div className="bg-white rounded-lg p-6 border border-[#00A6ED]/20">
                     <img
                       src={project.highLevelArchSvg || "/placeholder.svg"}
                       alt={`${project.title} High-Level Architecture`}

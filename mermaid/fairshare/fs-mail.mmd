@@ -1,0 +1,22 @@
+---
+config:
+  theme: redux-color
+  look: neo
+---
+sequenceDiagram
+    participant Client
+    participant Server 
+    participant DB 
+    participant User Mailbox
+
+    Client->>Server: POST /api/splits/{id}/remind
+    activate Server
+    Server->>DB: fetch split details (debtor email, creditor name, amount)
+    activate DB
+    DB-->>Server: returns split information
+    deactivate DB
+
+    Server->>Server: construct reminder email content
+    Server->>User Mailbox: send reminder email to debtor
+    Server-->>Client: returns { success: "Reminder sent" }
+    deactivate Server

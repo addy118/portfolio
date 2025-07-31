@@ -1,0 +1,42 @@
+---
+config:
+  theme: redux-color
+  look: neo
+---
+
+sequenceDiagram
+    participant User Mailbox
+
+    %% --- User Registration & Email Verification --- %%
+
+    Client->>Server: POST /api/register (with user credentials)
+    Server->>DB: create user record (unverified) & verification token
+    DB-->>Server: returns user and token
+    Server->>User Mailbox: send verification email with link
+    Server-->>Client: returns { success: "Verification email sent" }
+
+    User Mailbox->>Client: user clicks verification link
+    Client->>Server: GET /api/verify-email?token=...
+    Server->>DB: validate token and find associated user
+    DB-->>Server: token is valid
+    Server->>DB: update user status to 'verified', delete token
+    DB-->>Server: returns updated user
+    Server-->>Client: redirects to login page with success message
+
+
+    %% --- User Login with 2FA --- %%
+
+    Client->>Server: POST /api/login (with email & password)
+    Server->>DB: validate credentials
+    DB-->>Server: credentials valid, user has 2FA enabled
+    Server->>DB: generate & save 2FA token
+    DB-->>Server: returns 2FA token
+    Server->>User Mailbox: send 2FA code via email
+    Server-->>Client: returns { twoFactor: true }
+
+    Client->>Server: POST /api/login (with email, password & 2FA code)
+    Server->>DB: validate 2FA code
+    DB-->>Server: 2FA code is valid, delete token
+    Server-->>Client: returns success
+
+    Client->>Client: redirect to dashboard

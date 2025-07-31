@@ -1,0 +1,9 @@
+graph TD
+    subgraph "Component Setup"
+        A[Component Mounts] --> B["Get Liveblocks Context<br>(using useRoom & useSelf hooks)"];
+        B --> C["Create Y.js Provider<br>(This is the bridge between Liveblocks & Y.js)"];
+        C --> D["Get Shared Data Type<br>(ydoc.getText creates the collaborative text object - CRDT)"];
+        D --> E["Create CodeMirror Extension<br>(yCollab is the bridge between Y.js & the editor UI)"];
+        E --> F["Initialize CodeMirror<br>(The editor is now connected to the shared data)"];
+        F --> G([Live Collaborative Editor is Ready]);
+    end

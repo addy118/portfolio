@@ -1,0 +1,22 @@
+---
+config:
+  theme: redux-color
+  look: neo
+---
+
+sequenceDiagram
+    participant Client as Client
+    participant Server as Server
+    participant DB as DB
+    participant Liveblocks API as Liveblocks API
+
+    note over Client: client.enter("room-id") triggers the auth process
+    Client->>Server: POST /api/liveblocks-auth
+    Server->>Liveblocks API: identify user and request access to room
+    Liveblocks API-->>Server: returns temporary ID token
+    Server-->>Client: returns ID token
+
+    Client->>Liveblocks API: connect to room websocket with token
+
+    note over Client, Liveblocks API: real-time updates are now sent over the websocket
+    Liveblocks API-->>Client: send updates from others

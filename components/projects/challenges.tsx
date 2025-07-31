@@ -20,7 +20,7 @@ export default function Challenges({ project }: { project: Project }) {
                 className="flex items-start text-start font-extralight text-sm sm:text-base py-1 sm:py-2 before:content-['➤'] before:mr-4 before:ml-1 before:text-[#00A6ED]/60 before:font-bold before:font-mono"
               >
                 <span className="text-[#F1F0EA]/80 font-mono">
-                  {item.challenge}
+                  {item}
                 </span>
               </li>
             ))}

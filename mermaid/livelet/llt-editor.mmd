@@ -1,0 +1,26 @@
+---
+config:
+  theme: redux-color
+  look: neo
+---
+
+sequenceDiagram
+    participant User A 
+    participant CodeMirror UI
+    participant Liveblocks Backend
+    participant Yjs CRDT
+    participant User B 
+
+    User A->>CodeMirror UI: types a character
+    CodeMirror UI->>Yjs CRDT: translates input into a data change
+
+    Yjs CRDT->>Yjs CRDT: applies change to its local document
+    Yjs CRDT->>Liveblocks Backend: syncs tiny binary update via websocket
+
+    Liveblocks Backend-->>User B: broadcasts update to other clients
+
+    note over User B: receives update via websocket
+    User B->>Yjs CRDT: applies binary update to its local document
+    Yjs CRDT-->>CodeMirror UI: notifies editor of the data change
+
+    CodeMirror UI->>CodeMirror UI: renders the new character on screen

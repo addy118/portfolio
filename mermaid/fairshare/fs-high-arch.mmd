@@ -1,0 +1,23 @@
+---
+config:
+  theme: redux-color
+  look: neo
+---
+sequenceDiagram
+    participant User 
+    participant Server
+    participant DB 
+    
+    %% --- 1. User Authentication --- %%
+    User->>Server: authenticates via auth provider
+    note over Server: server validates credentials
+    Server-->>User: returns success
+
+
+    %% --- 2. Core Application Action (e.g., creating an expense) --- %%
+    User->>Server: performs an action (e.g., POST /api/expenses)
+    Server->>Server: apply business logic (e.g., calculate splits)
+    Server->>DB: create/read/update data
+    DB-->>Server: returns query result
+    Server-->>User: returns result of the action
+    

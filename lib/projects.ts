@@ -1,5 +1,3 @@
-// lib/data.ts
-
 export interface Project {
   id: string; // e.g., "fairshare"
   title: string;
@@ -19,13 +17,9 @@ export interface Project {
   highLevelArchSvg: string; // path to svg, e.g., "/diagrams/fairshare-hla.svg"
   coreFeatures: {
     title: string;
-    description: string;
     svg: string; // path to svg, e.g., "/diagrams/fairshare-core-expense.svg"
   }[]; // Array to hold multiple core feature diagrams
-  challenges: {
-    challenge: string;
-    solution: string;
-  }[];
+  challenges: string[];
   futureScope: string[];
 }
 
@@ -36,105 +30,96 @@ export const projects = [
     id: "fairshare",
     title: "Fairshare",
     tagline:
-      "A smart expense splitter for groups with optimized debt settlement.",
-    liveDemoUrl: "https://fairshare.adityakirti.tech", // update if needed
+      "A smart expense splitter for groups having multiple payers with optimized debt settlement and reminders",
+    liveDemoUrl: "https://fairshare.adityakirti.tech",
     githubUrl: "https://github.com/addy118/fairshare",
     problemStatement:
-      "Managing shared expenses among friends or groups often becomes chaotic, especially when multiple currencies, unequal splits, and recurring payments are involved.",
+      "Managing shared expenses among friends or groups often becomes chaotic, especially when a single expense is paid by multiple people unequally and many such expenses are involved",
     solution: {
       description:
-        "FairShare simplifies group expenses and debt tracking using smart algorithms and group-based event flows.",
+        "Fairshare simplifies group expenses and debt tracking using smart algorithm and group-based event flows",
       features: [
-        "Split expenses equally or unequally among friends or groups",
-        "Support for multi-currency expense tracking",
-        "Add friends without sharing personal details",
-        "Recurring expense support with reminders",
-        "Min-cost flow based debt optimization",
+        "Split multi-payer expenses equally among friends or groups",
+        "Cash flow optimization algorithm to calculate least amount of total transactions needed",
+        "Two-way confirmation mechanism for debt settlement",
         "PDF export of expense summaries",
-        "Payment app integrations (e.g., UPI, PayTM)",
-        "Group invite and approval system",
+        "In-app UPI payment support for debt settlement",
       ],
     },
     techStack: [
       {
         category: "Frontend",
-        technologies: ["React", "Tailwind CSS", "TypeScript"],
+        technologies: [
+          "React.js",
+          "Modern Redux Toolkit",
+          "Tailwind CSS",
+          "ShadCN UI",
+          "JavaScript",
+        ],
       },
-      { category: "Backend", technologies: ["Node.js", "Express", "Prisma"] },
-      { category: "Database", technologies: ["PostgreSQL"] },
       {
-        category: "Auth",
-        technologies: ["JWT", "OAuth", "Clerk"],
+        category: "Backend",
+        technologies: ["Node.js", "Express.js", "TypeScript"],
       },
-      { category: "Deployment", technologies: ["Vercel"] },
+      { category: "Database", technologies: ["PostgreSQL", "Prisma"] },
+      { category: "Other", technologies: ["Clerk", "Vercel"] },
     ],
     dbSchemaSvg: "/diagrams/fairshare-db.svg",
     highLevelArchSvg: "/diagrams/fairshare-hla.svg",
     coreFeatures: [
       {
-        title: "Expense Group and Friend Architecture",
-        description:
-          "Manages user relationships and group-based permissions for controlled expense sharing.",
-        svg: "/diagrams/fairshare-core-group.svg",
+        title: "Power of the Cash flow algorithm for splits calculation",
+        svg: "/diagrams/fairshare-core-debt-opt.svg",
       },
       {
-        title: "Expense Splitting and Payer Mapping",
-        description:
-          "Handles multiple payers and varying splits per expense, even across currencies.",
+        title: "Expense creation in a group",
+        svg: "/diagrams/fairshare-core-debt-opt.svg",
+      },
+      {
+        title: "Two-way confirmation of debt settlement",
         svg: "/diagrams/fairshare-core-expense.svg",
       },
       {
-        title: "Debt Optimization via Min-Cost Flow",
-        description:
-          "Reduces number of transactions required to settle debts using graph optimization.",
-        svg: "/diagrams/fairshare-core-debt-opt.svg",
+        title: "Integration of Clerk's user management in Fairshare",
+        svg: "/diagrams/fairshare-core-group.svg",
+      },
+      {
+        title: "Standard JWT authentication used by Clerk",
+        svg: "",
       },
     ],
     challenges: [
-      {
-        challenge:
-          "Handling unequal splits with multiple payers and dynamic group members.",
-        solution:
-          "Used a normalized `Split` and `Payer` schema model with validations at API level to enforce rules.",
-      },
-      {
-        challenge: "Optimizing debt settlement algorithm efficiently.",
-        solution:
-          "Implemented a variation of the Min-Cost Flow algorithm using a graph-based approach on top of the Split graph.",
-      },
-      {
-        challenge:
-          "Securing user tokens without exposing them in local storage.",
-        solution:
-          "Planned and partially implemented JWT with HTTP-only cookies and Axios interceptors.",
-      },
+      "Calculating equal splits having unequal payments from multiple payers and optimizing debt settlement algorithm efficiently",
+      "Introducing a direct payment option within the app for settling debts",
+      "Collecting the data of expenses having dynamic payers using forms",
+      "Managing the state throughout the app using Redux Toolkit & RTK Query",
+      "Exporting the payment history in PDF",
     ],
     futureScope: [
       "Add real-time notifications for expense updates",
-      "Switch to Clerk for secure and scalable auth",
-      "Enable settlement via UPI/PayPal APIs",
-      "Add analytics dashboard for individual and group spending habits",
+      "Enable adding users as friends",
+      "Role-based access in groups",
+      "Group chat for increasing communications between members",
     ],
   },
   {
     id: "livelet",
     title: "Livelet",
     tagline:
-      "Collaborative code editing & running with real-time presence, access control, and productivity tracking.",
+      "Collaborative code editor & executor with real-time presence and access control",
     liveDemoUrl: "https://livelet.adityakirti.tech",
     githubUrl: "https://github.com/addy118/livelet",
     problemStatement:
-      "Online collaboration for code editing lacks real-time sync, access-level control, and session-based productivity insights for developers working in teams or mentorship.",
+      "Online collaboration for code editing lacks a web-based lightweight, real-time, access-level controlled platform for developers working in teams or mentorship",
     solution: {
       description:
-        "Livelet offers a powerful real-time collaborative editor with access management and deep session analytics.",
+        "Livelet offers a real-time collaborative editor with code execution and access management",
       features: [
         "Real-time collaborative editing using Liveblocks and CodeMirror",
-        "Access level control per user: editor/viewer",
-        "Room-based sharing with Clerk-authenticated users",
-        "Session and interval tracking for user productivity",
-        "Activity timeline for each room",
-        "PostgreSQL-backed logging for analysis",
+        "Code execution using Judge0 supporting 5 major programming languages",
+        "Robust authentication system with social sign-ons and email OTP generation for sensitive actions",
+        "Room-based collaboratioin and access level control for each user in the room",
+        "Capable of 10+ concurrent users per room",
       ],
     },
     techStack: [
@@ -142,65 +127,47 @@ export const projects = [
         category: "Frontend",
         technologies: [
           "Next.js",
-          "TypeScript",
-          "Tailwind CSS",
-          "ShadCN UI",
           "CodeMirror",
+          "ShadCN UI",
+          "Tailwind CSS",
+          "TypeScript",
         ],
       },
-      { category: "Backend", technologies: ["Next.js API Routes", "Prisma"] },
-      { category: "Database", technologies: ["PostgreSQL"] },
-      { category: "Auth", technologies: ["Clerk", "Google OAuth"] },
-      { category: "Realtime", technologies: ["Liveblocks"] },
-      { category: "Deployment", technologies: ["Vercel"] },
+      { category: "Backend", technologies: ["Next.js", "TypeScript"] },
+      { category: "Database", technologies: ["PostgreSQL", "Prisma"] },
+      { category: "Realtime", technologies: ["Liveblocks", "Yjs"] },
+      { category: "Other", technologies: ["Auth.js", "Resend", "Vercel"] },
     ],
-    dbSchemaSvg: "/diagrams/livelet-db.svg",
-    highLevelArchSvg: "/diagrams/livelet-hla.svg",
+    dbSchemaSvg: "/schemas/livelet-erd.svg",
+    highLevelArchSvg: "/seq-diagrams/livelet/llt-high-arch.svg",
     coreFeatures: [
       {
-        title: "Room and Access Role Management",
-        description:
-          "Supports room creation and role-based permissions using Clerk session data.",
-        svg: "/diagrams/livelet-core-rooms.svg",
+        title: "How the editor works in real-time?",
+        svg: "/seq-diagrams/livelet/llt-editor.svg",
       },
       {
-        title: "Live Collaborative Editing Engine",
-        description:
-          "Leverages Liveblocks for real-time editing with presence indicators and conflict resolution.",
-        svg: "/diagrams/livelet-core-realtime.svg",
+        title: "User authentication using Auth.js",
+        svg: "/seq-diagrams/livelet/llt-auth.svg",
       },
       {
-        title: "Session and Activity Tracking",
-        description:
-          "Tracks user activity per session and aggregates it into productivity logs.",
-        svg: "/diagrams/livelet-core-analytics.svg",
+        title: "Collaborative room creation for coding",
+        svg: "/seq-diagrams/livelet/llt-room.svg",
+      },
+      {
+        title: "Room access authorization using Liveblocks API",
+        svg: "/seq-diagrams/livelet/llt-room-auth.svg",
       },
     ],
     challenges: [
-      {
-        challenge:
-          "Persisting user sessions and tracking interval activity in a real-time app.",
-        solution:
-          "Used Prisma models for Sessions and Intervals, and triggered writes during live events using Liveblocks presence callbacks.",
-      },
-      {
-        challenge:
-          "Handling dynamic roles per room with Clerk-auth integration.",
-        solution:
-          "Extended Clerk session to support custom role metadata, and enforced logic in backend API routes.",
-      },
-      {
-        challenge:
-          "Maintaining clean UI for presence indicators and code editing.",
-        solution:
-          "Used CodeMirror with Tailwind-based overlays and integrated user cursors via Liveblocks hooks.",
-      },
+      "Syncing the the code document in real-time with live cursors",
+      "Handling dynamic roles per room according to liveblocks authentication",
+      "Maintaining clean and dark UI code editor",
     ],
     futureScope: [
-      "Add support for voice and video collaboration",
-      "Room chat integration",
-      "AI-powered code suggestions",
-      "Export session analytics as CSV/PDF for team leads",
+      "Add support for voice collaboration",
+      "Integerate chat section within the room members",
+      "Enable AI-powered code suggestions",
+      "Add a feature for hosting coding competitions",
     ],
   },
   {
@@ -208,8 +175,8 @@ export const projects = [
     title: "CloudVault",
     tagline:
       "Minimal, secure cloud storage with a focus on privacy and accessibility.",
-    liveDemoUrl: "", // add when deployed
-    githubUrl: "https://github.com/addy118/cloudvault", // update if different
+    liveDemoUrl: "https://cloudvault.adityakirti.tech",
+    githubUrl: "https://github.com/addy118/cloudvault",
     problemStatement:
       "Most cloud storage platforms require tying your account to personal identity (like Google), which raises privacy concerns. There's also a risk of forgetting to log out on shared systems.",
     solution: {
@@ -237,7 +204,7 @@ export const projects = [
         technologies: ["Railway", "Vercel (frontend)"],
       },
     ],
-    dbSchemaSvg: "/diagrams/cloudvault-db.svg", // optional if using DB
+    dbSchemaSvg: "/diagrams/cloudvault-db.svg",
     highLevelArchSvg: "/diagrams/cloudvault-hla.svg",
     coreFeatures: [
       {
@@ -260,23 +227,9 @@ export const projects = [
       },
     ],
     challenges: [
-      {
-        challenge:
-          "Ensuring secure access without persistent login on shared devices.",
-        solution:
-          "Used short-lived JWT tokens and avoided saving credentials or tokens in local storage.",
-      },
-      {
-        challenge: "Structuring file storage per user with nested folders.",
-        solution:
-          "Used a virtual folder system mapped to real directories using user ID as prefix/root path.",
-      },
-      {
-        challenge:
-          "Building responsive breadcrumb navigation with correct file path syncing.",
-        solution:
-          "Used React state to maintain folder tree and URL structure for deep linking.",
-      },
+      "Ensuring secure access without persistent login on shared devices",
+      "Structuring file storage per user with nested folders",
+      "Building responsive breadcrumb navigation with correct file path syncing",
     ],
     futureScope: [
       "Add preview for common file types (PDF, images, docs)",

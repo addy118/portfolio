@@ -28,16 +28,13 @@ export default function CoreFeatures({ project }: { project: Project }) {
               >
                 <AccordionTrigger className="text-[#F1F0EA] hover:text-[#00A6ED] hover:no-underline font-mono ">
                   <div className="text-left">
-                    <h4 className="text-lg font-semibold text-[#00A6ED] font-mono">
+                    <h4 className="text-lg font-semibold text-[#F1F0EA]/80 font-mono">
                       {feature.title}
                     </h4>
-                    <p className="text-sm text-[#F1F0EA]/80 mt-1 font-mono">
-                      {feature.description}
-                    </p>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent>
-                  <div className="bg-[#0A0A0A]/50 rounded-lg p-6 border border-[#00A6ED]/20">
+                  <div className="bg-white rounded-lg p-6 border border-[#00A6ED]/20">
                     <img
                       src={feature.svg || "/placeholder.svg"}
                       alt={`${feature.title} Architecture`}

@@ -1,0 +1,14 @@
+---
+config:
+  theme: redux-color
+  look: neo
+---
+sequenceDiagram
+  participant Client as Client
+  participant Server as Server
+  participant DB as DB
+  Client ->>+ Server: POST /api/login (with credentials)
+  Server ->>+ DB: verify user credentials
+  DB -->>- Server: credentials are valid
+  Server ->> Server: create jwt with user payload & expiration
+  Server -->>- Client: returns jwt

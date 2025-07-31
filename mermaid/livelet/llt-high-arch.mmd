@@ -1,0 +1,42 @@
+---
+config:
+  theme: redux-color
+  look: neo
+---
+
+sequenceDiagram
+    participant Client
+    participant Server
+    participant DB
+    participant LiveblocksAPI
+    participant Judge0API
+
+    %% --- Phase 1: Joining Room & Initialization --- %%
+    Client->>Server: GET /room/{roomId}
+    Server->>DB: Verify user permissions for room
+    DB-->>Server: Returns access rights
+    Server->>LiveblocksAPI: Request auth token for user
+    LiveblocksAPI-->>Server: Returns session token
+    Server-->>Client: Renders page with Liveblocks token
+
+    Client->>LiveblocksAPI: Connect to room with token
+    LiveblocksAPI-->>Client: Connection successful, syncs document
+    note over Client: Editor is now initialized and collaborative.
+
+    %% --- Phase 2: Real-time Collaboration --- %%
+    note right of Client: All real-time updates are now handled between Clients and Liveblocks
+    Client->>LiveblocksAPI: User types a character
+    LiveblocksAPI->>Client: Broadcasts change to other clients
+
+
+    %% --- Phase 3: Running the Code --- %%
+    Client->>Server: POST /api/run
+    Server->>Judge0API: POST /submissions
+    Judge0API-->>Server: Returns { token }
+
+    loop Poll for result every second
+        Server->>Judge0API: GET /submissions/{token}
+        Judge0API-->>Server: Returns execution status
+    end
+
+    Server-->>Client: Returns final execution result
