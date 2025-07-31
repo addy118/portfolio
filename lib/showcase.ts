@@ -8,7 +8,7 @@ const showcase = [
     github: "https://github.com/addy118/fairshare",
     live: "https://fairshare.adityakirti.tech",
     docs: "https://adityakirti.tech/projects/fairshare",
-    image: "/fairshare_1898x863.png",
+    image: "/thumbnails/fairshare_1898x863.png",
     stack: [
       "TypeScript",
       "PostgreSQL",
@@ -29,7 +29,7 @@ const showcase = [
     github: "https://github.com/addy118/livelet",
     live: "https://livelet.adityakirti.tech",
     docs: "https://adityakirti.tech/projects/livelet",
-    image: "/livelet.png",
+    image: "/thumbnails/livelet_1920x1080.png",
     stack: [
       "Next.js",
       "TypeScript",

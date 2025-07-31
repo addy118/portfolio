@@ -53,7 +53,7 @@ export const PerformanceSection = async () => {
       if (stats && gfgData?.info) {
         gfg = {
           name: "GFG",
-          logo: "/gfg.jpeg",
+          logo: "/logos/gfg.jpeg",
           link: "https://www.geeksforgeeks.org/user/addy118/?ref=header_profile",
           username: gfgData?.info?.userName || "addy118",
           stats: {
@@ -93,7 +93,7 @@ export const PerformanceSection = async () => {
       if (lcData) {
         leetcode = {
           name: "Leetcode",
-          logo: "/lc.png",
+          logo: "/logos/lc.png",
           link: "https://leetcode.com/u/addy_118",
           username: "addy_118",
           stats: {
@@ -112,7 +112,7 @@ export const PerformanceSection = async () => {
 
   const codingNinjas = {
     name: "Coding Ninjas",
-    logo: "/cn.jpeg",
+    logo: "/logos/cn.jpeg",
     link: "https://www.naukri.com/code360/profile/devaddy",
     username: "addy_118",
     stats: {
