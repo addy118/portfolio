@@ -1,6 +1,6 @@
 "use client";
 
-import { Project } from "@/lib/projects";
+import type { Project } from "@/lib/projects";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Accordion,
@@ -12,9 +12,9 @@ import {
 export default function CoreFeatures({ project }: { project: Project }) {
   return (
     <div>
-      <Card className="bg-gray-900/50 border-gray-800">
+      <Card className="bg-[#0A0A0A]/80 transition-all duration-300 backdrop-blur-sm border-[#00A6ED]/20  hover:border-[#00A6ED]/40">
         <CardHeader>
-          <CardTitle className="text-2xl text-gray-100">
+          <CardTitle className="text-xl sm:text-2xl font-bold text-[#00A6ED] font-mono">
             Core Feature Workflows
           </CardTitle>
         </CardHeader>
@@ -24,18 +24,20 @@ export default function CoreFeatures({ project }: { project: Project }) {
               <AccordionItem
                 key={index}
                 value={`feature-${index}`}
-                className="border-gray-700"
+                className="mb-4 border-b-0 border border-[#00A6ED]/20  hover:border-[#00A6ED]/40 rounded-md px-4"
               >
-                <AccordionTrigger className="text-gray-200 hover:text-gray-100 hover:no-underline">
+                <AccordionTrigger className="text-[#F1F0EA] hover:text-[#00A6ED] hover:no-underline font-mono ">
                   <div className="text-left">
-                    <h4 className="text-lg font-semibold">{feature.title}</h4>
-                    <p className="text-sm text-gray-400 mt-1">
+                    <h4 className="text-lg font-semibold text-[#00A6ED] font-mono">
+                      {feature.title}
+                    </h4>
+                    <p className="text-sm text-[#F1F0EA]/80 mt-1 font-mono">
                       {feature.description}
                     </p>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent>
-                  <div className="bg-gray-800/50 rounded-lg p-6 border border-gray-700 mt-4">
+                  <div className="bg-[#0A0A0A]/50 rounded-lg p-6 border border-[#00A6ED]/20">
                     <img
                       src={feature.svg || "/placeholder.svg"}
                       alt={`${feature.title} Architecture`}

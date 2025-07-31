@@ -23,11 +23,11 @@ export default function ProjectPage() {
   }
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen text-[#F1F0EA] font-mono relative">
       <Background />
       <Navbar />
-      <div className="container pt-28 mx-auto px-4 py-8">
-        <div className="max-w-4xl mx-auto space-y-12">
+      <div className="max-w-6xl mx-auto px-2 sm:px-4 lg:px-8 py-8 sm:py-12 pb-16">
+        <div className="content-layer max-w-4xl mx-auto space-y-12">
           <Title project={project} />
 
           <Problem project={project} />

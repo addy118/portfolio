@@ -203,4 +203,86 @@ export const projects = [
       "Export session analytics as CSV/PDF for team leads",
     ],
   },
+  {
+    id: "cloudvault",
+    title: "CloudVault",
+    tagline:
+      "Minimal, secure cloud storage with a focus on privacy and accessibility.",
+    liveDemoUrl: "", // add when deployed
+    githubUrl: "https://github.com/addy118/cloudvault", // update if different
+    problemStatement:
+      "Most cloud storage platforms require tying your account to personal identity (like Google), which raises privacy concerns. There's also a risk of forgetting to log out on shared systems.",
+    solution: {
+      description:
+        "CloudVault offers simple, secure file storage with basic email/password JWT authentication. It mimics Google Drive’s navigation and layout while preserving user privacy.",
+      features: [
+        "JWT-based authentication using only email and password",
+        "File upload, delete, rename, and folder creation",
+        "Breadcrumb-based navigation (like Google Drive)",
+        "Fully responsive layout with drag-and-drop UI",
+        "No external identity provider or tracking",
+        "Folder hierarchy with user-isolated storage",
+      ],
+    },
+    techStack: [
+      { category: "Frontend", technologies: ["React", "Tailwind CSS"] },
+      { category: "Backend", technologies: ["Node.js", "Express"] },
+      { category: "Auth", technologies: ["JWT", "bcrypt"] },
+      {
+        category: "Storage",
+        technologies: ["Local filesystem (dev)", "Cloud storage planned"],
+      },
+      {
+        category: "Deployment",
+        technologies: ["Railway", "Vercel (frontend)"],
+      },
+    ],
+    dbSchemaSvg: "/diagrams/cloudvault-db.svg", // optional if using DB
+    highLevelArchSvg: "/diagrams/cloudvault-hla.svg",
+    coreFeatures: [
+      {
+        title: "User Authentication Flow",
+        description:
+          "Uses JWT tokens issued at login and stored in memory or HTTP-only cookies to protect private file access.",
+        svg: "/diagrams/cloudvault-core-auth.svg",
+      },
+      {
+        title: "File Storage and Access Logic",
+        description:
+          "Isolated folders per user; each file operation is permission-gated using the JWT payload user ID.",
+        svg: "/diagrams/cloudvault-core-files.svg",
+      },
+      {
+        title: "Breadcrumb Navigation UI",
+        description:
+          "Shows folder path as a breadcrumb, dynamically updates on folder change, and supports nested navigation.",
+        svg: "/diagrams/cloudvault-core-ui.svg",
+      },
+    ],
+    challenges: [
+      {
+        challenge:
+          "Ensuring secure access without persistent login on shared devices.",
+        solution:
+          "Used short-lived JWT tokens and avoided saving credentials or tokens in local storage.",
+      },
+      {
+        challenge: "Structuring file storage per user with nested folders.",
+        solution:
+          "Used a virtual folder system mapped to real directories using user ID as prefix/root path.",
+      },
+      {
+        challenge:
+          "Building responsive breadcrumb navigation with correct file path syncing.",
+        solution:
+          "Used React state to maintain folder tree and URL structure for deep linking.",
+      },
+    ],
+    futureScope: [
+      "Add preview for common file types (PDF, images, docs)",
+      "Migrate storage to AWS S3 or Cloudinary",
+      "Enable multi-user sharing and link-based access",
+      "Two-factor auth support for better security",
+    ],
+  },
 ];

@@ -1,7 +1,7 @@
 "use client";
 
-import { Project } from "@/lib/projects";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import type { Project } from "@/lib/projects";
+import { Card, CardContent } from "@/components/ui/card";
 import {
   Accordion,
   AccordionContent,
@@ -14,25 +14,25 @@ export default function Arch({ project }: { project: Project }) {
     <>
       {/* Database Schema */}
       <div>
-        <Card className="bg-gray-900/50 border-gray-800">
-          <CardContent>
+        <Card className="bg-[#0A0A0A]/80 border-[#00A6ED]/20 transition-all duration-300 backdrop-blur-sm hover:border-[#00A6ED]/40">
+          <CardContent className="pb-0">
             <Accordion type="single" collapsible className="w-full">
               <AccordionItem
                 value="database-schema"
-                className="border-gray-700"
+                className="border-[#00A6ED]/20 border-b-0"
               >
-                <AccordionTrigger className="text-gray-200 hover:text-gray-100 hover:no-underline">
+                <AccordionTrigger className="text-[#F1F0EA] hover:text-[#00A6ED] hover:no-underline font-mono">
                   <div className="text-left">
-                    <h4 className="text-lg font-semibold">
+                    <h4 className="text-lg font-semibold text-[#00A6ED] font-mono">
                       Database Entity Relationship Diagram
                     </h4>
-                    <p className="text-sm text-gray-400 mt-1">
+                    <p className="text-sm text-[#F1F0EA]/80 mt-1 font-mono">
                       View the complete database schema and relationships
                     </p>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent>
-                  <div className="bg-gray-800/50 rounded-lg p-6 border border-gray-700 mt-4">
+                  <div className="bg-[#0A0A0A]/50 rounded-lg p-6 border border-[#00A6ED]/20">
                     <img
                       src={project.dbSchemaSvg || "/placeholder.svg"}
                       alt={`${project.title} Database Schema`}
@@ -53,26 +53,25 @@ export default function Arch({ project }: { project: Project }) {
 
       {/* High-Level Architecture */}
       <div>
-        <Card className="bg-gray-900/50 border-gray-800">
-          <CardContent>
+        <Card className="bg-[#0A0A0A]/80 border-[#00A6ED]/20 transition-all duration-300 backdrop-blur-sm hover:border-[#00A6ED]/40">
+          <CardContent className="pb-0">
             <Accordion type="single" collapsible className="w-full">
               <AccordionItem
                 value="high-level-arch"
-                className="border-gray-700"
+                className="border-[#00A6ED]/20"
               >
-                <AccordionTrigger className="text-gray-200 hover:text-gray-100 hover:no-underline">
+                <AccordionTrigger className="text-[#F1F0EA] hover:text-[#00A6ED] hover:no-underline font-mono">
                   <div className="text-left">
-                    <h4 className="text-lg font-semibold">
+                    <h4 className="text-lg font-semibold text-[#00A6ED] font-mono">
                       System Workflow Overview
                     </h4>
-                    <p className="text-sm text-gray-400 mt-1">
-                      View the complete system workflow and 
-                      interactions
+                    <p className="text-sm text-[#F1F0EA]/80 mt-1 font-mono">
+                      View the complete system workflow and interactions
                     </p>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent>
-                  <div className="bg-gray-800/50 rounded-lg p-6 border border-gray-700 mt-4">
+                  <div className="bg-[#0A0A0A]/50 rounded-lg p-6 border border-[#00A6ED]/20">
                     <img
                       src={project.highLevelArchSvg || "/placeholder.svg"}
                       alt={`${project.title} High-Level Architecture`}
