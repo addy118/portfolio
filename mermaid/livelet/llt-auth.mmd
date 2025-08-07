@@ -9,7 +9,7 @@ sequenceDiagram
 
     %% --- User Registration & Email Verification --- %%
 
-    Client->>Server: POST /api/register (with user credentials)
+    Client->>Server: POST /api/register
     Server->>DB: create user record (unverified) & verification token
     DB-->>Server: returns user and token
     Server->>User Mailbox: send verification email with link

@@ -70,11 +70,11 @@ export const projects = [
     coreFeatures: [
       {
         title: "Power of the Cash flow algorithm for splits calculation",
-        svg: "/seq-diagrams/fairshare/fs-algo.svg",
+        svg: "/diagrams/optimization.svg",
       },
       {
         title: "How are splits of an expense calculated?",
-        svg: "/seq-diagrams/fairshare/fs-expense-calc.svg",
+        svg: "/diagrams/split-algo.svg",
       },
       {
         title: "Expense creation in a group",

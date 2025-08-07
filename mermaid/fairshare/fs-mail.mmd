@@ -10,7 +10,7 @@ sequenceDiagram
     participant User Mailbox
 
     Client->>Server: POST /api/splits/{id}/remind
-    Server->>DB: fetch split details (debtor email, creditor name, amount)
+    Server->>DB: fetch split details 
     DB-->>Server: returns split information
 
     Server->>Server: construct reminder email content

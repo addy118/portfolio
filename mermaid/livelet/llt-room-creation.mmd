@@ -8,7 +8,7 @@ sequenceDiagram
   participant Server as Server
   participant DB as DB
   participant Liveblocks API as Liveblocks API
-  Client ->> Server: POST /rooms/new (with initial room details)
+  Client ->> Server: POST /rooms/new 
   Server ->> Liveblocks API: create room with user permissions
   Liveblocks API -->> Server: returns new liveblocks room metadata
   Server ->> DB: store room metadata
