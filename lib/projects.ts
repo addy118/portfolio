@@ -177,7 +177,7 @@ export const projects = [
   },
   {
     id: "cloudvault",
-    title: "CloudVault",
+    title: "Cloudvault",
     tagline:
       "Minimal, secure cloud storage with a focus on privacy and accessibility.",
     liveDemoUrl: "https://cloudvault.adityakirti.tech",

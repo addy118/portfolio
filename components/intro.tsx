@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 export default function IntroSection() {
   const downloadResume = () => {
     const downloadUrl =
-      "https://docs.google.com/document/d/1E8Ktmh4mFWJVpiHVu8uOszmpz8y1h_2D7vDN_cG68nw/edit?usp=sharing";
+      "https://drive.google.com/file/d/1aZ-SRWAhuYmgOZKy9i0jbMQHFwZREaLg/view?usp=drive_link";
     window.open(downloadUrl, "_blank");
   };
 
