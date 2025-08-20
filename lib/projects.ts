@@ -191,54 +191,45 @@ export const projects = [
         "JWT-based authentication using only email and password",
         "File upload, delete, rename, and folder creation",
         "Breadcrumb-based navigation (like Google Drive)",
-        "Fully responsive layout with drag-and-drop UI",
         "No external identity provider or tracking",
-        "Folder hierarchy with user-isolated storage",
       ],
     },
     techStack: [
       { category: "Frontend", technologies: ["React", "Tailwind CSS"] },
-      { category: "Backend", technologies: ["Node.js", "Express"] },
+      {
+        category: "Backend",
+        technologies: ["Node.js", "Express", "JavaScript"],
+      },
       { category: "Auth", technologies: ["JWT", "bcrypt"] },
       {
         category: "Storage",
-        technologies: ["Local filesystem (dev)", "Cloud storage planned"],
+        technologies: ["PostgreSQL", "Supabase"],
       },
       {
         category: "Deployment",
-        technologies: ["Railway", "Vercel (frontend)"],
+        technologies: ["Vercel", "Netlify"],
       },
     ],
-    dbSchemaSvg: "/diagrams/cloudvault-db.svg",
-    highLevelArchSvg: "/diagrams/cloudvault-hla.svg",
+    dbSchemaSvg: "/schemas/cloudvault-erd.svg",
+    highLevelArchSvg: "/seq-diagrams/cloudvault/cv-high-arch.svg",
     coreFeatures: [
       {
         title: "User Authentication Flow",
-        description:
-          "Uses JWT tokens issued at login and stored in memory or HTTP-only cookies to protect private file access.",
-        svg: "/diagrams/cloudvault-core-auth.svg",
+        svg: "/seq-diagrams/cloudvault/cv-user-auth.svg",
       },
       {
-        title: "File Storage and Access Logic",
-        description:
-          "Isolated folders per user; each file operation is permission-gated using the JWT payload user ID.",
-        svg: "/diagrams/cloudvault-core-files.svg",
-      },
-      {
-        title: "Breadcrumb Navigation UI",
-        description:
-          "Shows folder path as a breadcrumb, dynamically updates on folder change, and supports nested navigation.",
-        svg: "/diagrams/cloudvault-core-ui.svg",
+        title: "Where are your files stored?",
+        svg: "/seq-diagrams/cloudvault/cv-file-storage.svg",
       },
     ],
     challenges: [
-      "Ensuring secure access without persistent login on shared devices",
+      "Ensuring secure access without persistent login on devices",
       "Structuring file storage per user with nested folders",
-      "Building responsive breadcrumb navigation with correct file path syncing",
+      "Building breadcrumb navigation with correct file path syncing",
     ],
     futureScope: [
-      "Add preview for common file types (PDF, images, docs)",
-      "Migrate storage to AWS S3 or Cloudinary",
+      "Drag and drop functionality for ease in uploading files",
+      "Migrate storage to AWS S3",
       "Enable multi-user sharing and link-based access",
       "Two-factor auth support for better security",
     ],
